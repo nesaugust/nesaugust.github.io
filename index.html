@@ -58,12 +58,14 @@ section h2 { font-size: clamp(2.4rem, 5vw, 4rem); }
 .tags { display: flex; flex-wrap: wrap; gap: 6px; }
 .tags span { background: #eaf1e8; font-size: .77rem; font-weight: 650; padding: 2px 9px; border-radius: 100px; }
 .links { margin-top: auto; padding-top: 16px; display: flex; flex-wrap: wrap; gap: 6px 18px; font-weight: 700; font-size: .92rem; }
-.about { display: grid; grid-template-columns: minmax(0, 72ch) minmax(0, 240px); align-items: start; gap: clamp(24px, 5vw, 56px); }
+.about { display: grid; grid-template-columns: minmax(0, 72ch) minmax(0, 240px); align-items: start; column-gap: clamp(24px, 5vw, 56px); row-gap: 14px; }
 .about-photo { display: block; width: 100%; max-width: 240px; height: auto; border-radius: 16px; }
 @media (max-width: 720px) {
   .about { grid-template-columns: minmax(0, 1fr); }
+  .about-photo { justify-self: center; }
 }
-.about p { margin-top: 14px; }
+.about > h2 { grid-column: 1 / -1; }
+.about p + p { margin-top: 14px; }
 @media (max-width: 720px) {
   .wrap { width: calc(100% - 32px); }
   .hero { grid-template-columns: 1fr; gap: 26px; }
@@ -262,8 +264,8 @@ section h2 { font-size: clamp(2.4rem, 5vw, 4rem); }
     </div>
   </section>
   <section class="about" id="about" aria-labelledby="about-title">
+    <h2 id="about-title">About me</h2>
     <div>
-      <h2 id="about-title">About me</h2>
       <p>I spent over five years as a statistician at Statistics Indonesia (BPS), Indonesia’s national statistics agency. BPS serves a similar function to the Australian Bureau of Statistics (ABS). At BPS, I coordinated survey teams, validated datasets with more than 50,000 records, and presented findings to stakeholders.</p>
       <p>I completed a Master of Data Science and Decisions at UNSW Sydney. I’m currently a Data Scientist and Product Analyst Intern at ORison Tech, where I evaluate LLM outputs, check the quality of AI-generated analyses, and contribute to dashboard design and product requirements.</p>
       <p>My portfolio brings together business dashboards, statistical analysis and machine learning projects.</p>
