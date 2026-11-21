@@ -115,7 +115,7 @@ section h2 { font-size: clamp(2.4rem, 5vw, 4rem); }
       <dl class="profile">
         <div><dt>Experience</dt><dd>5+ years as a statistician</dd></div>
         <div><dt>Education</dt><dd>Master of Data Science and Decisions · UNSW</dd></div>
-        <div><dt>Core tools</dt><dd>Power BI, SQL, Excel, Python and R</dd></div>
+        <div><dt>Core tools</dt><dd>Power BI, SQL, Python and R</dd></div>
       </dl>
     </div>
   </div>
@@ -134,6 +134,7 @@ section h2 { font-size: clamp(2.4rem, 5vw, 4rem); }
           <dl class="case">
             <div><dt>Problem</dt><dd>Economic indicators are difficult to compare consistently across countries and years.</dd></div>
             <div><dt>Solution</dt><dd>A Power BI report covers historical indicators. The Streamlit dashboard adds inflation estimates, recession-risk indicators, anomaly flags and country groupings.</dd></div>
+            <div><dt>Data analysed</dt><dd>2,053 country-year records across 74 countries, spanning 1999–2026 in the final modelling dataset. The recession classifier used 411 records for testing.</dd></div>
             <div><dt>Methodology</dt><dd>Cleaned and merged country-year records covering GDP, inflation, unemployment, trade, exchange rates and other financial indicators. Handled missing values, explored trends and correlations, and created economic scores, lagged variables and three-year rolling features.</dd></div>
             <div><dt>Machine learning models</dt><dd>Random Forest Regressor for inflation, class-weighted Random Forest Classifier for a rule-based recession indicator, Isolation Forest for unusual observations, and K-Means (four clusters) for country segmentation. PCA projects the clusters onto two dimensions. The separate three-year trend projection compounds recent average growth.</dd></div>
             <div><dt>Evaluation &amp; selection</dt><dd>The inflation model recorded MAE 0.144, RMSE 0.587 and R² 0.485 on the notebook’s test split. The recession classifier matched its rule-based labels in the test split, where the inputs included the same GDP growth and unemployment used to define those labels. The notebook reports results by task.</dd></div>
@@ -148,6 +149,7 @@ section h2 { font-size: clamp(2.4rem, 5vw, 4rem); }
           <dl class="case">
             <div><dt>Problem</dt><dd>The 2024 Stack Overflow Developer Survey contains many individual responses, making it hard to compare technology choices across respondent groups.</dd></div>
             <div><dt>Solution</dt><dd>An R Shiny dashboard lets readers filter the survey by country, developer role, experience and work arrangement, then explore compensation, job satisfaction and language preferences.</dd></div>
+            <div><dt>Data analysed</dt><dd>Unit: individual developer survey response. The source survey had over 65,000 respondents from 185 countries. Dashboard counts vary by filter and question.</dd></div>
             <div><dt>Methodology</dt><dd>Load the cleaned survey CSV in R, exclude missing values where needed and split multi-select role and language answers. Summarise responses by country and developer role with dplyr, show salary patterns and response counts with ggplot2 and Leaflet, and export filtered results to CSV or Excel. Language-interest counts describe what respondents want to work with.</dd></div>
           </dl>
           <div class="links"><a href="https://github.com/nesaugust/Global-Tech-Insight-2024">GitHub repository ↗</a> <a href="https://github.com/nesaugust/Global-Tech-Insight-2024/blob/main/Global%20Tech%20Insight%202024/app.R">R Shiny source ↗</a> <a href="https://agnesmakayy.shinyapps.io/cleanstack">Open Shiny app ↗</a></div>
@@ -168,6 +170,7 @@ section h2 { font-size: clamp(2.4rem, 5vw, 4rem); }
           <dl class="case">
             <div><dt>Problem</dt><dd>Which members account for the most revenue, and which groups should a loyalty team prioritise for retention or reactivation?</dd></div>
             <div><dt>Solution</dt><dd>Built a three-page Power BI report covering loyalty KPIs, customer value segments, and churn and retention.</dd></div>
+            <div><dt>Data analysed</dt><dd>3,214 loyalty programme customers. Purchase and redemption activity is analysed at the customer level.</dd></div>
             <div><dt>Methodology</dt><dd>Combine member, purchase and redemption records. Use DAX to summarise activity, revenue and redemption. Segment customers by recency, frequency and monetary value (RFM), and use customer lifetime value (CLV) tiers to compare revenue contribution.</dd></div>
             <div><dt>Findings</dt><dd>Of 3,214 customers, 782 had churned (24.33%), and 758 were classified as high risk. The top 20% generated 79.14% of revenue. These findings support separate campaigns for high-risk members and high-value Champions.</dd></div>
           </dl>
@@ -189,6 +192,7 @@ section h2 { font-size: clamp(2.4rem, 5vw, 4rem); }
           <dl class="case">
             <div><dt>Problem</dt><dd>Credit risk teams need a consistent way to assess risk across buy now, pay later applications.</dd></div>
             <div><dt>Solution</dt><dd>A Streamlit dashboard lets users explore credit risk predictions from a machine learning model.</dd></div>
+            <div><dt>Data analysed</dt><dd>10,345 BNPL records in the source dataset. The model comparison used 2,069 test records, including 808 defaults and 1,261 non-defaults.</dd></div>
             <div><dt>Methodology</dt><dd>Handled missing values, removed unused IDs, converted booleans, one-hot encoded categorical variables and derived features from transaction dates. Explored financial and repayment patterns before training classifiers to predict default.</dd></div>
             <div><dt>Machine learning models</dt><dd>Compared Logistic Regression, Random Forest, Gradient Boosting, AdaBoost, XGBoost and a Neural Network using accuracy, precision, recall, F1 and ROC-AUC.</dd></div>
             <div><dt>Evaluation &amp; selection</dt><dd>XGBoost ranked first on ROC-AUC (0.7824), followed by Gradient Boosting (0.7800) and AdaBoost (0.7761). Logistic Regression led on F1 (0.5969) and recall (0.5891). The notebook selected XGBoost by ROC-AUC.</dd></div>
@@ -204,6 +208,7 @@ section h2 { font-size: clamp(2.4rem, 5vw, 4rem); }
           <dl class="case">
             <div><dt>Problem</dt><dd>Historical air quality readings show past conditions. Users also need a way to explore predicted conditions.</dd></div>
             <div><dt>Solution</dt><dd>A Streamlit app makes air quality predictions accessible through an interactive dashboard.</dd></div>
+            <div><dt>Data analysed</dt><dd>Unit: hourly air-quality observation from a city. The training script samples up to 50,000 complete rows before the 80/20 split.</dd></div>
             <div><dt>Methodology</dt><dd>Parsed hourly timestamps, extracted hour, day, month and day of week, and removed rows with missing values. Sampled up to 50,000 rows and used an 80/20 random split. The inputs include pollutant readings, UV index, European AQI and calendar features.</dd></div>
             <div><dt>Machine learning models</dt><dd>The training script fits a Random Forest Regressor with 30 trees and a maximum depth of 12 to estimate PM2.5. It exports a compressed model for the Streamlit app.</dd></div>
             <div><dt>Evaluation &amp; selection</dt><dd>The training script evaluates the selected Random Forest with MAE and R². It runs a single model configuration.</dd></div>
@@ -227,6 +232,7 @@ section h2 { font-size: clamp(2.4rem, 5vw, 4rem); }
           <dl class="case">
             <div><dt>Problem</dt><dd>Course teams need to see recurring issues across Coursera reviews and trace each theme back to the comments that support it.</dd></div>
             <div><dt>Solution</dt><dd>Built a Databricks prototype that extracts multiple themes, sentiment and supporting quotes per review, with Power BI pages for trends, evidence and model evaluation.</dd></div>
+            <div><dt>Data analysed</dt><dd>Unit: written Coursera review linked to its course. The public project records 1099 reviews from held-out courses for baseline evaluation. The README does not report the full number of reviews processed.</dd></div>
             <div><dt>Methodology</dt><dd>Built a Databricks ETL pipeline using PySpark and Delta tables. In Bronze, ingest and deduplicate raw Coursera review and course CSVs. In Silver, normalise review text, parse dates and ratings, redact email addresses and URLs, separate invalid records, and join course metadata. In Gold, validate the LLM-generated theme labels and check that each quoted excerpt appears in the cleaned review, then publish reporting tables for Power BI.</dd></div>
             <div><dt>Models</dt><dd>Use databricks-gpt-oss-120b for structured theme, sentiment and evidence extraction. Train a class-weighted one-vs-rest Logistic Regression baseline on TF-IDF unigram and bigram features. Split by course so the test set contains unseen courses.</dd></div>
             <div><dt>Evaluation</dt><dd>On 99 test reviews, the baseline achieved macro-F1 of 0.3824 and micro-F1 of 0.6469 against LLM-generated labels. General feedback had the highest per-theme F1 (0.85). These scores measure agreement with the LLM labels.</dd></div>
@@ -242,6 +248,7 @@ section h2 { font-size: clamp(2.4rem, 5vw, 4rem); }
           <dl class="case">
             <div><dt>Problem</dt><dd>Traffic and mobility data alone provide limited context for explaining why urban activity changes during severe weather, major events or service disruptions.</dd></div>
             <div><dt>Solution</dt><dd>Built a benchmark dataset across 24 NSW regions to test whether LLMs can use contextual signals for urban prediction and reasoning.</dd></div>
+            <div><dt>Data analysed</dt><dd>24 study locations, including Sydney CBD, Parramatta, Newcastle and Wollongong. Contextual signals are aligned by location and time.</dd></div>
             <div><dt>Methodology</dt><dd>Clean and align weather, holidays, events, road crashes, transport alerts and mobility inputs by region and time. Use the aligned data to design tasks covering traffic changes, anomaly classification, regional sensitivity, scenario cards and cases with similar traffic patterns but different causes.</dd></div>
             <div><dt>My contribution</dt><dd>Led weather data preparation, developed features for unusual conditions, and contributed to merging point-of-interest data.</dd></div>
           </dl>
