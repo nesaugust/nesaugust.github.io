@@ -52,16 +52,12 @@ section h2 { font-size: clamp(2.4rem, 5vw, 4rem); }
 .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
 .card { overflow: hidden; background: #fff; border: 1px solid var(--rule); border-radius: 17px; display: flex; flex-direction: column; }
 .card:hover { border-color: #7e9d83; box-shadow: 0 8px 24px #102c2312; }
-.card.feature { border-top: 5px solid var(--accent); }
 .card-body { padding: 24px; display: flex; flex: 1; flex-direction: column; align-items: flex-start; }
 .card h3 { margin: 10px 0 7px; font-size: 1.25rem; line-height: 1.25; }
 .card p { color: var(--muted); }
 .tags { display: flex; flex-wrap: wrap; gap: 6px; }
 .tags span { background: #eaf1e8; font-size: .77rem; font-weight: 650; padding: 2px 9px; border-radius: 100px; }
 .links { margin-top: auto; padding-top: 16px; display: flex; flex-wrap: wrap; gap: 6px 18px; font-weight: 700; font-size: .92rem; }
-.art { height: 142px; display: flex; align-items: end; justify-content: center; gap: 10px; background: var(--art); padding: 22px 32px; }
-.art i { display: block; width: 12%; max-width: 54px; height: var(--h); border-radius: 6px 6px 2px 2px; background: var(--accent); opacity: .8; }
-.art i:nth-child(even) { opacity: .53; }
 .about { max-width: 72ch; }
 .about p { margin-top: 14px; }
 @media (max-width: 720px) {
@@ -71,6 +67,27 @@ section h2 { font-size: clamp(2.4rem, 5vw, 4rem); }
   section { padding-block: 40px; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+.top { background-color: var(--dark); background-image: radial-gradient(ellipse at 92% 35%, #315743, transparent 53%); }
+.hero { padding-block: clamp(52px, 8vw, 100px); }
+.profile { box-shadow: 0 15px 55px #071b1660; }
+.project-section { --accent: #27604b; --wash: #e7f0e8; }
+#business-analytics { --accent: #885226; --wash: #f5eadc; }
+#data-science { --accent: #384e86; --wash: #e9eefb; }
+#llm-research { --accent: #66477b; --wash: #f0e9f6; }
+.section-heading { border-left: 4px solid var(--accent); padding-left: 16px; margin-bottom: 24px; }
+.section-heading .intro { margin: 8px 0 0; }
+.project-section .card { border-top: 4px solid var(--accent); }
+.project-section .tags span { background: var(--wash); color: var(--accent); }
+.project-section .card h3 { font-size: clamp(1.3rem, 2.4vw, 1.66rem); margin: 13px 0 2px; }
+.case { width: 100%; margin: 10px 0 0; }
+.case > div { padding: 12px 0; border-bottom: 1px solid var(--rule); }
+.case dt { color: var(--accent); font-weight: 750; font-size: .83rem; }
+.case dd { margin: 3px 0 0; color: var(--muted); font-size: .94rem; }
+.project-section .card:only-child { grid-column: 1 / -1; }
+@media (min-width: 850px) {
+  .project-section .card:only-child .case { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
+}
 </style>
 </head>
 <body>
@@ -78,7 +95,7 @@ section h2 { font-size: clamp(2.4rem, 5vw, 4rem); }
   <div class="wrap">
     <nav aria-label="Main navigation">
       <a class="brand" href="#top">Agnes Makay</a>
-      <div><a href="#data-analytics">Data Analytics</a><a href="#business-analytics">Business Analytics</a><a href="#data-science">Data Science</a><a href="#about">About</a></div>
+      <div><a href="#data-analytics">Data Analytics</a><a href="#business-analytics">Business Analytics</a><a href="#data-science">Data Science</a><a href="#llm-research">LLM &amp; Research</a><a href="#about">About</a></div>
     </nav>
     <div class="hero">
       <div>
@@ -100,82 +117,145 @@ section h2 { font-size: clamp(2.4rem, 5vw, 4rem); }
   </div>
 </header>
 <main class="wrap">
-  <section id="data-analytics" aria-labelledby="data-analytics-title">
-    <h2 id="data-analytics-title">Data Analytics &amp; BI</h2>
-    <p class="intro">Power BI reporting, survey exploration and data preparation.</p>
+  <section id="data-analytics" class="project-section" aria-labelledby="data-analytics-title">
+    <div class="section-heading">
+      <h2 id="data-analytics-title">Data Analytics &amp; BI</h2>
+      <p class="intro">Reporting and interactive data exploration.</p>
+    </div>
     <div class="grid">
-      <article class="card feature" style="--accent:#855632;--art:#f3e8d8">
-        <div class="art" aria-hidden="true">
-          <i style="--h:44%"></i><i style="--h:32%"></i><i style="--h:62%"></i><i style="--h:75%"></i><i style="--h:94%"></i>
-        </div>
+      <article class="card">
         <div class="card-body">
-          <div class="tags"><span>Power BI</span><span>Streamlit</span></div>
+          <div class="tags"><span>Power BI</span><span>Machine learning</span><span>Streamlit</span></div>
           <h3>Global Economic Prediction</h3>
-          <p>Explore economic indicators and predictions through Power BI reporting and an interactive Streamlit app.</p>
-          <div class="links">
-            <a href="https://github.com/nesaugust/global-economic-prediction-dashboard">View project on GitHub ↗</a>
-            <a href="https://global-economic-prediction-dashboard-qldrufuvmj3v8khn6mjged.streamlit.app/">Open Streamlit demo ↗</a>
-          </div>
+          <dl class="case">
+            <div><dt>Problem</dt><dd>Economic indicators are difficult to compare consistently across countries and years.</dd></div>
+            <div><dt>Solution</dt><dd>A Power BI report covers historical indicators. The Streamlit dashboard adds inflation estimates, recession-risk indicators, anomaly flags and country groupings.</dd></div>
+            <div><dt>Methodology</dt><dd>Cleaned and merged country-year records covering GDP, inflation, unemployment, trade, exchange rates and other financial indicators. Handled missing values, explored trends and correlations, and created economic scores, lagged variables and three-year rolling features.</dd></div>
+            <div><dt>Machine learning models</dt><dd>Random Forest Regressor for inflation, class-weighted Random Forest Classifier for a rule-based recession indicator, Isolation Forest for unusual observations, and K-Means (four clusters) for country segmentation. PCA projects the clusters onto two dimensions. The separate three-year trend projection compounds recent average growth.</dd></div>
+            <div><dt>Evaluation &amp; selection</dt><dd>The inflation model recorded MAE 0.144, RMSE 0.587 and R² 0.485 on the notebook’s test split. The recession classifier matched its rule-based labels in the test split, where the inputs included the same GDP growth and unemployment used to define those labels. The notebook reports results by task.</dd></div>
+          </dl>
+          <div class="links"><a href="https://github.com/nesaugust/global-economic-prediction-dashboard/blob/main/data_modelling.ipynb">Modelling code ↗</a> <a href="https://github.com/nesaugust/global-economic-prediction-dashboard">View project on GitHub ↗</a>
+<a href="https://global-economic-prediction-dashboard-qldrufuvmj3v8khn6mjged.streamlit.app/">Open Streamlit demo ↗</a></div>
         </div>
       </article>
-      <article class="card"><div class="card-body">
-        <div class="tags"><span>Python</span><span>UNSW capstone</span></div>
-        <h3>NSW Urban Context Benchmark</h3>
-        <p>Led weather data preparation across 24 NSW regions and developed features to flag unusual conditions.</p>
-        <div class="links"><a href="https://github.com/nesaugust/nsw-urban-context-benchmark">View capstone ↗</a></div>
-      </div></article>
-      <article class="card"><div class="card-body">
-        <div class="tags"><span>R</span><span>Shiny</span></div>
-        <h3>Stack Overflow Developer Survey</h3>
-        <p>Explore responses from the 2024 Stack Overflow Developer Survey in a Shiny app.</p>
-        <div class="links"><a href="https://agnesmakayy.shinyapps.io/cleanstack">Open Shiny app ↗</a></div>
-      </div></article>
+      <article class="card">
+        <div class="card-body">
+          <div class="tags"><span>R</span><span>Shiny</span><span>Survey analysis</span></div>
+          <h3>Global Tech Insight 2024</h3>
+          <dl class="case">
+            <div><dt>Problem</dt><dd>The 2024 Stack Overflow Developer Survey contains many individual responses, making it hard to compare technology choices across respondent groups.</dd></div>
+            <div><dt>Solution</dt><dd>An R Shiny dashboard lets readers filter the survey by country, developer role, experience and work arrangement, then explore compensation, job satisfaction and language preferences.</dd></div>
+            <div><dt>Methodology</dt><dd>Load the cleaned survey CSV in R, exclude missing values where needed and split multi-select role and language answers. Summarise responses by country and developer role with dplyr, show salary patterns and response counts with ggplot2 and Leaflet, and export filtered results to CSV or Excel. Language-interest counts describe what respondents want to work with.</dd></div>
+          </dl>
+          <div class="links"><a href="https://github.com/nesaugust/Global-Tech-Insight-2024">GitHub repository ↗</a> <a href="https://github.com/nesaugust/Global-Tech-Insight-2024/blob/main/Global%20Tech%20Insight%202024/app.R">R Shiny source ↗</a> <a href="https://agnesmakayy.shinyapps.io/cleanstack">Open Shiny app ↗</a></div>
+        </div>
+      </article>
     </div>
   </section>
-  <section id="business-analytics" aria-labelledby="business-analytics-title">
-    <h2 id="business-analytics-title">Business Analytics</h2>
-    <p class="intro">Customer behaviour, loyalty and retention.</p>
+  <section id="business-analytics" class="project-section" aria-labelledby="business-analytics-title">
+    <div class="section-heading">
+      <h2 id="business-analytics-title">Business Analytics</h2>
+      <p class="intro">Customer behaviour and retention.</p>
+    </div>
     <div class="grid">
-      <article class="card feature" style="--accent:#397454;--art:#e2efd9">
-        <div class="art" aria-hidden="true">
-          <i style="--h:38%"></i><i style="--h:62%"></i><i style="--h:51%"></i><i style="--h:82%"></i><i style="--h:72%"></i>
-        </div>
+      <article class="card">
         <div class="card-body">
-          <div class="tags"><span>Power BI</span><span>Customer analytics</span></div>
+          <div class="tags"><span>Power BI</span><span>DAX</span><span>RFM</span><span>CLV</span></div>
           <h3>Customer Loyalty &amp; Churn Analytics</h3>
-          <p>Explore customer purchase behaviour, rewards redemption and retention in a Power BI dashboard.</p>
+          <dl class="case">
+            <div><dt>Problem</dt><dd>Which members account for the most revenue, and which groups should a loyalty team prioritise for retention or reactivation?</dd></div>
+            <div><dt>Solution</dt><dd>Built a three-page Power BI report covering loyalty KPIs, customer value segments, and churn and retention.</dd></div>
+            <div><dt>Methodology</dt><dd>Combine member, purchase and redemption records. Use DAX to summarise activity, revenue and redemption. Segment customers by recency, frequency and monetary value (RFM), and use customer lifetime value (CLV) tiers to compare revenue contribution.</dd></div>
+            <div><dt>Findings</dt><dd>Of 3,214 customers, 782 had churned (24.33%), and 758 were classified as high risk. The top 20% generated 79.14% of revenue. These findings support separate campaigns for high-risk members and high-value Champions.</dd></div>
+          </dl>
           <div class="links"><a href="https://github.com/nesaugust/customer-loyalty-churn-analytics">View project on GitHub ↗</a></div>
         </div>
       </article>
     </div>
   </section>
-  <section id="data-science" aria-labelledby="data-science-title">
-    <h2 id="data-science-title">Data Science &amp; Machine Learning</h2>
-    <p class="intro">Predictive models and interactive demos.</p>
-    <div class="grid">
-      <article class="card"><div class="card-body">
-        <div class="tags"><span>Python</span><span>XGBoost</span><span>Streamlit</span></div>
-        <h3>BNPL Credit Risk Dashboard</h3>
-        <p>Explore model predictions for buy now, pay later credit risk in an interactive dashboard.</p>
-        <div class="links"><a href="https://bnpl-dashboard-quk85wuz7werjwk8jkkjsm.streamlit.app/">Open demo ↗</a><a href="https://github.com/nesaugust/bnpl-dashboard">View code ↗</a></div>
-      </div></article>
-      <article class="card"><div class="card-body">
-        <div class="tags"><span>Python</span><span>Streamlit</span></div>
-        <h3>Air Quality Prediction</h3>
-        <p>Explore air quality predictions in an interactive Streamlit dashboard.</p>
-        <div class="links"><a href="https://air-quality-prediction-dashboard-isx8qdwcwfxfar6li9ncx8.streamlit.app/">Open demo ↗</a><a href="https://github.com/nesaugust/air-quality-prediction-dashboard">View code ↗</a></div>
-      </div></article>
+  <section id="data-science" class="project-section" aria-labelledby="data-science-title">
+    <div class="section-heading">
+      <h2 id="data-science-title">Data Science &amp; Machine Learning</h2>
+      <p class="intro">Predictive modelling and interactive demos.</p>
     </div>
-    <div class="actions"><a class="button secondary" href="https://github.com/nesaugust?tab=repositories">Browse all repositories ↗</a></div>
+    <div class="grid">
+      <article class="card">
+        <div class="card-body">
+          <div class="tags"><span>Python</span><span>XGBoost</span><span>Streamlit</span></div>
+          <h3>BNPL Credit Risk Dashboard</h3>
+          <dl class="case">
+            <div><dt>Problem</dt><dd>Credit risk teams need a consistent way to assess risk across buy now, pay later applications.</dd></div>
+            <div><dt>Solution</dt><dd>A Streamlit dashboard lets users explore credit risk predictions from a machine learning model.</dd></div>
+            <div><dt>Methodology</dt><dd>Handled missing values, removed unused IDs, converted booleans, one-hot encoded categorical variables and derived features from transaction dates. Explored financial and repayment patterns before training classifiers to predict default.</dd></div>
+            <div><dt>Machine learning models</dt><dd>Compared Logistic Regression, Random Forest, Gradient Boosting, AdaBoost, XGBoost and a Neural Network using accuracy, precision, recall, F1 and ROC-AUC.</dd></div>
+            <div><dt>Evaluation &amp; selection</dt><dd>XGBoost ranked first on ROC-AUC (0.7824), followed by Gradient Boosting (0.7800) and AdaBoost (0.7761). Logistic Regression led on F1 (0.5969) and recall (0.5891). The notebook selected XGBoost by ROC-AUC.</dd></div>
+          </dl>
+          <div class="links"><a href="https://github.com/nesaugust/bnpl-dashboard/blob/main/notebooks/Eda_Ml%20Model.ipynb">Modelling code ↗</a> <a href="https://bnpl-dashboard-quk85wuz7werjwk8jkkjsm.streamlit.app/">Open demo ↗</a>
+<a href="https://github.com/nesaugust/bnpl-dashboard">View code ↗</a></div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="card-body">
+          <div class="tags"><span>Python</span><span>Streamlit</span></div>
+          <h3>Air Quality Prediction</h3>
+          <dl class="case">
+            <div><dt>Problem</dt><dd>Historical air quality readings show past conditions. Users also need a way to explore predicted conditions.</dd></div>
+            <div><dt>Solution</dt><dd>A Streamlit app makes air quality predictions accessible through an interactive dashboard.</dd></div>
+            <div><dt>Methodology</dt><dd>Parsed hourly timestamps, extracted hour, day, month and day of week, and removed rows with missing values. Sampled up to 50,000 rows and used an 80/20 random split. The inputs include pollutant readings, UV index, European AQI and calendar features.</dd></div>
+            <div><dt>Machine learning models</dt><dd>The training script fits a Random Forest Regressor with 30 trees and a maximum depth of 12 to estimate PM2.5. It exports a compressed model for the Streamlit app.</dd></div>
+            <div><dt>Evaluation &amp; selection</dt><dd>The training script evaluates the selected Random Forest with MAE and R². It runs a single model configuration.</dd></div>
+          </dl>
+          <div class="links"><a href="https://github.com/nesaugust/air-quality-prediction-dashboard/blob/main/train_model.py">Modelling code ↗</a> <a href="https://air-quality-prediction-dashboard-isx8qdwcwfxfar6li9ncx8.streamlit.app/">Open demo ↗</a>
+<a href="https://github.com/nesaugust/air-quality-prediction-dashboard">View code ↗</a></div>
+        </div>
+      </article>
+    </div>
+  </section>
+  <section id="llm-research" class="project-section" aria-labelledby="llm-research-title">
+    <div class="section-heading">
+      <h2 id="llm-research-title">LLM &amp; Research</h2>
+      <p class="intro">Text analysis and applied research with real-world datasets.</p>
+    </div>
+    <div class="grid">
+      <article class="card">
+        <div class="card-body">
+          <div class="tags"><span>Databricks</span><span>PySpark</span><span>GPT-OSS 120B</span><span>Power BI</span></div>
+          <h3>Student Feedback Intelligence</h3>
+          <dl class="case">
+            <div><dt>Problem</dt><dd>Course teams need to see recurring issues across Coursera reviews and trace each theme back to the comments that support it.</dd></div>
+            <div><dt>Solution</dt><dd>Built a Databricks prototype that extracts multiple themes, sentiment and supporting quotes per review, with Power BI pages for trends, evidence and model evaluation.</dd></div>
+            <div><dt>Methodology</dt><dd>Built a Databricks ETL pipeline using PySpark and Delta tables. In Bronze, ingest and deduplicate raw Coursera review and course CSVs. In Silver, normalise review text, parse dates and ratings, redact email addresses and URLs, separate invalid records, and join course metadata. In Gold, validate the LLM-generated theme labels and check that each quoted excerpt appears in the cleaned review, then publish reporting tables for Power BI.</dd></div>
+            <div><dt>Models</dt><dd>Use databricks-gpt-oss-120b for structured theme, sentiment and evidence extraction. Train a class-weighted one-vs-rest Logistic Regression baseline on TF-IDF unigram and bigram features. Split by course so the test set contains unseen courses.</dd></div>
+            <div><dt>Evaluation</dt><dd>On 99 test reviews, the baseline achieved macro-F1 of 0.3824 and micro-F1 of 0.6469 against LLM-generated labels. General feedback had the highest per-theme F1 (0.85). These scores measure agreement with the LLM labels.</dd></div>
+          </dl>
+          <div class="links"><a href="https://github.com/nesaugust/Student-Reviews-Intelligence">GitHub repository ↗</a> <a href="https://github.com/nesaugust/Student-Reviews-Intelligence/blob/main/notebooks/06_evaluate_models.py">Evaluation code ↗</a></div>
+          
+        </div>
+      </article>
+      <article class="card">
+        <div class="card-body">
+          <div class="tags"><span>Python</span><span>LLM benchmark</span><span>Open data</span><span>Capstone</span></div>
+          <h3>NSW Urban Context Benchmark</h3>
+          <dl class="case">
+            <div><dt>Problem</dt><dd>Traffic and mobility data alone provide limited context for explaining why urban activity changes during severe weather, major events or service disruptions.</dd></div>
+            <div><dt>Solution</dt><dd>Built a benchmark dataset across 24 NSW regions to test whether LLMs can use contextual signals for urban prediction and reasoning.</dd></div>
+            <div><dt>Methodology</dt><dd>Clean and align weather, holidays, events, road crashes, transport alerts and mobility inputs by region and time. Use the aligned data to design tasks covering traffic changes, anomaly classification, regional sensitivity, scenario cards and cases with similar traffic patterns but different causes.</dd></div>
+            <div><dt>My contribution</dt><dd>Led weather data preparation, developed features for unusual conditions, and contributed to merging point-of-interest data.</dd></div>
+          </dl>
+          <div class="links"><a href="https://github.com/nesaugust/nsw-urban-context-benchmark">View capstone ↗</a></div>
+        </div>
+      </article>
+    </div>
   </section>
   <section class="about" id="about" aria-labelledby="about-title">
     <h2 id="about-title">About me</h2>
     <p>I worked as a statistician at Statistics Indonesia (BPS), where I coordinated survey teams, checked data quality and presented findings to stakeholders. I went on to complete a Master of Data Science and Decisions at UNSW in Sydney.</p>
+    <p>I’m currently a Data Scientist and Product Analyst Intern at ORison Tech, where I evaluate LLM outputs, check the quality of AI-generated analyses, and contribute to dashboard design and product requirements.</p>
     <p>My portfolio brings together business dashboards, statistical analysis and machine learning projects.</p>
   </section>
 </main>
 <footer class="bottom">
-  <div class="wrap"><span>Agnes Makay · Sydney, Australia</span><a href="#top">Back to top ↑</a></div>
+  <div class="wrap"><span>Agnes Makay · Sydney, Australia</span><a href="https://github.com/nesaugust?tab=repositories">All GitHub repositories ↗</a><a href="#top">Back to top ↑</a></div>
 </footer>
 </body>
 </html>
