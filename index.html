@@ -32,7 +32,7 @@ nav a:hover { text-decoration: underline; }
 .location { color: #d4e6cb; font-size: .85rem; letter-spacing: .08em; text-transform: uppercase; }
 h1, h2, h3, p { margin: 0; }
 h1, h2 { font-family: Georgia, serif; font-weight: 500; letter-spacing: -.05em; line-height: 1.02; }
-h1 { font-size: clamp(3.1rem, 8vw, 7.2rem); margin-block: 12px 20px; }
+h1 { font-size: clamp(2rem, 4.8vw, 4.25rem); margin-block: 12px 20px; }
 .hero h2 { font: 650 clamp(1.15rem, 2.8vw, 1.65rem)/1.25 "Segoe UI", system-ui, sans-serif; letter-spacing: -.02em; }
 .hero p:not(.location) { color: #d4e6db; max-width: 52ch; margin-top: 14px; }
 .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
@@ -88,6 +88,9 @@ section h2 { font-size: clamp(2.4rem, 5vw, 4rem); }
 @media (min-width: 850px) {
   .project-section .card:only-child .case { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
 }
+.links .demo-link { background: #e3f3ca; color: #183923; border-radius: 8px; padding: 6px 11px; text-decoration: none; }
+.links .demo-link:hover { text-decoration: underline; }
+.links { align-items: center; }
 </style>
 </head>
 <body>
@@ -106,12 +109,13 @@ section h2 { font-size: clamp(2.4rem, 5vw, 4rem); }
         <div class="actions">
           <a class="button primary" href="#data-analytics">Explore projects</a>
           <a class="button secondary" href="https://github.com/nesaugust?tab=repositories">View GitHub</a>
+          <a class="button secondary" href="https://share.streamlit.io/user/nesaugust">View Streamlit profile</a>
         </div>
       </div>
       <dl class="profile">
         <div><dt>Experience</dt><dd>5+ years as a statistician</dd></div>
         <div><dt>Education</dt><dd>Master of Data Science and Decisions · UNSW</dd></div>
-        <div><dt>Core tools</dt><dd>Power BI, SQL, Python and R</dd></div>
+        <div><dt>Core tools</dt><dd>Power BI, SQL, Excel, Python and R</dd></div>
       </dl>
     </div>
   </div>
@@ -134,8 +138,7 @@ section h2 { font-size: clamp(2.4rem, 5vw, 4rem); }
             <div><dt>Machine learning models</dt><dd>Random Forest Regressor for inflation, class-weighted Random Forest Classifier for a rule-based recession indicator, Isolation Forest for unusual observations, and K-Means (four clusters) for country segmentation. PCA projects the clusters onto two dimensions. The separate three-year trend projection compounds recent average growth.</dd></div>
             <div><dt>Evaluation &amp; selection</dt><dd>The inflation model recorded MAE 0.144, RMSE 0.587 and R² 0.485 on the notebook’s test split. The recession classifier matched its rule-based labels in the test split, where the inputs included the same GDP growth and unemployment used to define those labels. The notebook reports results by task.</dd></div>
           </dl>
-          <div class="links"><a href="https://github.com/nesaugust/global-economic-prediction-dashboard/blob/main/data_modelling.ipynb">Modelling code ↗</a> <a href="https://github.com/nesaugust/global-economic-prediction-dashboard">View project on GitHub ↗</a>
-<a href="https://global-economic-prediction-dashboard-qldrufuvmj3v8khn6mjged.streamlit.app/">Open Streamlit demo ↗</a></div>
+          <div class="links"><a class="demo-link" href="https://global-economic-prediction-dashboard-qldrufuvmj3v8khn6mjged.streamlit.app/">Open Streamlit demo ↗</a> <a href="https://github.com/nesaugust/global-economic-prediction-dashboard/blob/main/data_modelling.ipynb">Modelling code ↗</a> <a href="https://github.com/nesaugust/global-economic-prediction-dashboard">View project on GitHub ↗</a></div>
         </div>
       </article>
       <article class="card">
@@ -190,7 +193,7 @@ section h2 { font-size: clamp(2.4rem, 5vw, 4rem); }
             <div><dt>Machine learning models</dt><dd>Compared Logistic Regression, Random Forest, Gradient Boosting, AdaBoost, XGBoost and a Neural Network using accuracy, precision, recall, F1 and ROC-AUC.</dd></div>
             <div><dt>Evaluation &amp; selection</dt><dd>XGBoost ranked first on ROC-AUC (0.7824), followed by Gradient Boosting (0.7800) and AdaBoost (0.7761). Logistic Regression led on F1 (0.5969) and recall (0.5891). The notebook selected XGBoost by ROC-AUC.</dd></div>
           </dl>
-          <div class="links"><a href="https://github.com/nesaugust/bnpl-dashboard/blob/main/notebooks/Eda_Ml%20Model.ipynb">Modelling code ↗</a> <a href="https://bnpl-dashboard-quk85wuz7werjwk8jkkjsm.streamlit.app/">Open demo ↗</a>
+          <div class="links"><a class="demo-link" href="https://bnpl-dashboard-quk85wuz7werjwk8jkkjsm.streamlit.app/">Open Streamlit demo ↗</a> <a href="https://github.com/nesaugust/bnpl-dashboard/blob/main/notebooks/Eda_Ml%20Model.ipynb">Modelling code ↗</a> 
 <a href="https://github.com/nesaugust/bnpl-dashboard">View code ↗</a></div>
         </div>
       </article>
@@ -205,7 +208,7 @@ section h2 { font-size: clamp(2.4rem, 5vw, 4rem); }
             <div><dt>Machine learning models</dt><dd>The training script fits a Random Forest Regressor with 30 trees and a maximum depth of 12 to estimate PM2.5. It exports a compressed model for the Streamlit app.</dd></div>
             <div><dt>Evaluation &amp; selection</dt><dd>The training script evaluates the selected Random Forest with MAE and R². It runs a single model configuration.</dd></div>
           </dl>
-          <div class="links"><a href="https://github.com/nesaugust/air-quality-prediction-dashboard/blob/main/train_model.py">Modelling code ↗</a> <a href="https://air-quality-prediction-dashboard-isx8qdwcwfxfar6li9ncx8.streamlit.app/">Open demo ↗</a>
+          <div class="links"><a class="demo-link" href="https://air-quality-prediction-dashboard-isx8qdwcwfxfar6li9ncx8.streamlit.app/">Open Streamlit demo ↗</a> <a href="https://github.com/nesaugust/air-quality-prediction-dashboard/blob/main/train_model.py">Modelling code ↗</a> 
 <a href="https://github.com/nesaugust/air-quality-prediction-dashboard">View code ↗</a></div>
         </div>
       </article>
@@ -242,7 +245,7 @@ section h2 { font-size: clamp(2.4rem, 5vw, 4rem); }
             <div><dt>Methodology</dt><dd>Clean and align weather, holidays, events, road crashes, transport alerts and mobility inputs by region and time. Use the aligned data to design tasks covering traffic changes, anomaly classification, regional sensitivity, scenario cards and cases with similar traffic patterns but different causes.</dd></div>
             <div><dt>My contribution</dt><dd>Led weather data preparation, developed features for unusual conditions, and contributed to merging point-of-interest data.</dd></div>
           </dl>
-          <div class="links"><a href="https://github.com/nesaugust/nsw-urban-context-benchmark">View capstone ↗</a></div>
+          <div class="links"><a class="demo-link" href="https://nsw-urban-context-benchmark-a5ptesxhez9yypeycc4nzu.streamlit.app/">Open Streamlit demo ↗</a> <a href="https://github.com/nesaugust/nsw-urban-context-benchmark">View capstone ↗</a></div>
         </div>
       </article>
     </div>
