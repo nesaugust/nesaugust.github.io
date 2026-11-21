@@ -1,4 +1,4 @@
-# Agnes Makay | Data Analytics Portfolio
+# Agnes Jeni Makay | Data Analytics Portfolio
 
 I'm a data analyst and statistician based in Sydney, with over five years of experience in official statistics and a Master of Data Science and Decisions from UNSW. My projects cover data preparation, business reporting, predictive modelling and LLM evaluation.
 
